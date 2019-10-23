@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script>
+            document.addEventListener('DOMContentLoaded', () =>{
+                // by default
+                document.querySelector('#submit').disabled = true;
+
+                document.querySelector('#task').onkeyup = () =>{
+                    if (document.querySelector('#task').value.length > 0)
+                        document.querySelector('#submit').disabled = false;
+                    else
+                        document.querySelector('#submit').disabled = true;
+                };
+                
+                document.querySelector('#new-task').onsubmit = ()=>{
+                    // create a new item for list
+                    const li = document.createElement('li');
+                    li.innerHTML = document.querySelector('#task').value;
+                    // add to the list
+                    document.querySelector('#tasks').append(li);
+                    // clear the field
+                    document.querySelector('#task').value = '';
+                    document.querySelector('#submit').disabled = true;
+                    // stop form from submitting
+                    return false;
+                };
+            });
+        </script>
+        <title>my website</title>
+    </head>
+    <body>
+        <ul id="tasks">
+        </ul>
+
+        <form id="new-task">
+            <input type="text" placeholder="task" id="task"  autocomplete="off">
+            <input type="submit" value="Enviar" id="submit">
+        </form>
+    
+    </body>
+</html>

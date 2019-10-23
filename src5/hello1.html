@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script>
+            document.addEventListener('DOMContentLoaded', function(){
+                document.querySelector('#form').onsubmit = extract_information;
+            });
+
+            function extract_information(){
+                const name = document.querySelector('#name').value;
+                const age = document.querySelector('#age').value;
+                alert(`name: ${name} age:${age}`);
+            }
+        </script>
+        <title>my website</title>
+    </head>
+    <body>
+        <form id="form">
+            <input type="text" autofocus autocomplete="off" id="name" placeholder="name">
+            <input type="text" autofocus autocomplete="off" id="age" placeholder="age">
+            <input type="submit">
+        </form>
+    </body>
+</html>

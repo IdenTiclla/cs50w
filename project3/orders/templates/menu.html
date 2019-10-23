@@ -1,0 +1,379 @@
+{% extends 'base2.html' %}
+
+{% block title %} Menu {% endblock %} 
+
+
+
+{% block content %}
+
+
+<hr>
+<hr>
+<div id="cartcart">
+    {% include 'cart.html' %}
+</div>
+
+<br>
+
+
+<div class="container">
+    <div class="card text-center col-sm-12 my-auto py-5 px-5">
+        <div class="card-header">
+            Menu
+        </div>
+        <!--Regular Pizzas-->
+        <div class="card-body">
+            <div class="accordion" id="accordionExample">
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Regular Pizza 
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <form action="">
+                                <div class="row col-md-12">
+                                    <div class="container col-md-4">
+                                        <h1>Small</h1>
+                                        <table class="table table-dark">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">id</th>
+                                                    <th scope="col">name</th>
+                                                    <th scope="col">price</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for regular_pizza in regular_pizzas_small %}
+                                                    <tr>
+                                                        <th scope="row">{{ regular_pizza.id }}</th>
+                                                        <td>{{ regular_pizza.name }}</td>
+                                                        <td>{{ regular_pizza.detailproducttype__price}}</td>
+                                                        <td><a href="" data-price="{{regular_pizza.detailproducttype__price }}" data-name="{{ regular_pizza.name }}" data-id="{{ regular_pizza.id }}" id="buy" class="btn btn-primary buy">buy</a></td>
+                                                    </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    <div class="container col-md-4">
+                                        <h1>Large</h1>
+                                        <table class="table table-dark">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">id</th>
+                                                    <th scope="col">name</th>
+                                                    <th scope="col">price</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for regular_pizza in regular_pizzas_large %}
+                                                    <tr>
+                                                        <th scope="row">{{ regular_pizza.id }}</th>
+                                                        <td>{{ regular_pizza.name }}</td>
+                                                        <td>{{ regular_pizza.detailproducttype__price}}</td>
+                                                        <td><a href="" data-price="{{regular_pizza.detailproducttype__price }}" data-name="{{ regular_pizza.name }}" data-id="{{ regular_pizza.id }}" id="buy" class="btn btn-primary buy">buy</a></td>
+                                                    </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <div class="container text-center">
+                                    <div class="row">
+                                        <h1>Toppings</h1>
+                                        <ul class="list-unstyled row">
+                                            {% for topping in toppings %}
+                                                <li class="col-sm-3"><input type="checkbox" name="check"> <span class="label-text">{{topping.name}}</span></li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <td><a href="" class="btn btn-primary btn-lg">Add to cart</a></td>
+                            
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Sicilian Pizzas-->
+                <div class="card">
+                    <div class="card-header" id="headingTwo">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Sicilian Pizzas
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <form action="">
+                                <div class="row col-md-12">
+                                    <div class="container col-md-4">
+                                        <h1>Small</h1>
+                                        <table class="table table-dark">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">id</th>
+                                                    <th scope="col">name</th>
+                                                    <th scope="col">price</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for sicilian_pizza in sicilian_pizzas_small %}
+                                                    <tr>
+                                                        <th scope="row">{{ sicilian_pizza.id }}</th>
+                                                        <td>{{ sicilian_pizza.name }}</td>
+                                                        <td>{{ sicilian_pizza.detailproducttype__price}}</td>
+                                                        <td><a href="" data-price="{{sicilian_pizza.detailproducttype__price }}" data-name="{{ sicilian_pizza.name }}" data-id="{{ sicilian_pizza.id }}" id="buy" class="btn btn-primary buy">buy</a></td>
+                                                    </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    <div class="container col-md-4">
+                                        <h1>Large</h1>
+                                        <table class="table table-dark">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">id</th>
+                                                    <th scope="col">name</th>
+                                                    <th scope="col">price</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for sicilian_pizza in sicilian_pizzas_large %}
+                                                    <tr>
+                                                        <th scope="row">{{ sicilian_pizza.id }}</th>
+                                                        <td>{{ sicilian_pizza.name }}</td>
+                                                        <td>{{ sicilian_pizza.detailproducttype__price}}</td>
+                                                        <td><a href="" data-price="{{sicilian_pizza.detailproducttype__price }}" data-name="{{ sicilian_pizza.name }}" data-id="{{ sicilian_pizza.id }}" id="buy" class="btn btn-primary buy">buy</a></td>
+                                                    </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+
+                                <div class="container text-center">
+                                    <div class="row">
+                                        <h1>Toppings</h1>
+                                        <ul class="list-unstyled row">
+                                            {% for topping in toppings %}
+                                            <li class="col-sm-3"><input type="checkbox" name="check"> <span class="label-text">{{topping.name}}</span></li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <td><a href="" class="btn btn-primary btn-lg">Add to cart</a></td>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Subs-->
+            <div class="card">
+                <div class="card-header" id="headingThree">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Subs
+                        </button>
+                    </h2>
+                </div>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <div class="row col-md-12">
+                            <div class="container col-md-4">
+                                <h1>Small</h1>
+                                <table class="table table-dark">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">id</th>
+                                            <th scope="col">name</th>
+                                            <th scope="col">price</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for sub in subs_small %}
+                                            <tr>
+                                                <th scope="row">{{ sub.id }}</th>
+                                                <td>{{ sub.name }}</td>
+                                                <td>{{ sub.detailproducttype__price}}</td>
+                                                <td><a href="" data-price="{{sub.detailproducttype__price }}" data-name="{{ sub.name }}" data-id="{{ sub.id }}" id="buy" class="btn btn-primary buy">buy</a></td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="container col-md-4">
+                                <h1>Large</h1>
+                                <table class="table table-dark">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">id</th>
+                                            <th scope="col">name</th>
+                                            <th scope="col">price</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for sub in subs_large %}
+                                            <tr>
+                                                <th scope="row">{{ sub.id }}</th>
+                                                <td>{{ sub.name }}</td>
+                                                <td>{{ sub.detailproducttype__price}}</td>
+                                                <td><a href="" data-price="{{sub.detailproducttype__price }}" data-name="{{ sub.name }}" data-id="{{ sub.id }}" id="buy" class="btn btn-primary buy">buy</a></td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Pastas-->
+            <div class="card">
+                <div class="card-header" id="headingFour">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                      Pastas
+                    </button>
+                    </h2>
+                </div>
+                <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <div class="container col-md-4">
+                            <table class="table table-dark">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">id</th>
+                                        <th scope="col">name</th>
+                                        <th scope="col">price</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for pasta in pastas %}
+                                        <tr>
+                                            <th scope="row">{{ pasta.id }}</th>
+                                            <td>{{ pasta.name }}</td>
+                                            <td>{{ pasta.detailproducttype__price}}</td>
+                                            <td><a href="" data-price="{{pasta.detailproducttype__price }}" data-name="{{ pasta.name }}" data-id="{{ pasta.id }}" id="buy" class="btn btn-primary buy">buy</a></td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Salads-->
+            <div class="card">
+                <div class="card-header" id="headingFive">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                      Salads
+                    </button>
+                    </h2>
+                </div>
+                <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <div class="container col-md-4">
+                            <table class="table table-dark">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">id</th>
+                                        <th scope="col">name</th>
+                                        <th scope="col">price</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for salad in salads %}
+                                        <tr>
+                                            <th scope="row">{{ salad.id }}</th>
+                                            <td>{{ salad.name }}</td>
+                                            <td>{{ salad.detailproducttype__price}}</td>
+                                            <td><a href="" data-price="{{salad.detailproducttype__price }}" data-name="{{ salad.name }}" data-id="{{ salad.id }}" id="buy" class="btn btn-primary buy">buy</a></td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Dinner platters-->
+            <div class="card">
+                <div class="card-header" id="headingSix">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                      Dinner platters
+                    </button>
+                    </h2>
+                </div>
+                <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <div class="row col-md-12">
+                                <div class="container col-md-4">
+                                    <h1>Small</h1>
+                                    <table class="table table-dark">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">id</th>
+                                                <th scope="col">name</th>
+                                                <th scope="col">price</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for dinner_platter in dinner_platters_small %}
+                                                <tr>
+                                                    <th scope="row">{{ dinner_platter.id }}</th>
+                                                    <td>{{ dinner_platter.name }}</td>
+                                                    <td>{{ dinner_platter.detailproducttype__price}}</td>
+                                                    <td><a href="" data-price="{{dinner_platter.detailproducttype__price }}" data-name="{{ dinner_platter.name }}" data-id="{{ dinner_platter.id }}" id="buy" class="btn btn-primary buy">buy</a></td>
+                                                </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="container col-md-4">
+                                    <h1>Large</h1>
+                                    <table class="table table-dark">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">id</th>
+                                                <th scope="col">name</th>
+                                                <th scope="col">price</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for dinner_platter in dinner_platters_large %}
+                                                <tr>
+                                                    <th scope="row">{{ dinner_platter.id }}</th>
+                                                    <td>{{ dinner_platter.name }}</td>
+                                                    <td>{{ dinner_platter.detailproducttype__price}}</td>
+                                                    <td><a href="" data-price="{{dinner_platter.detailproducttype__price }}" data-name="{{ dinner_platter.name }}" data-id="{{ dinner_platter.id }}" id="buy" class="btn btn-primary buy">buy</a></td>
+                                                </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+
+{% endblock %}

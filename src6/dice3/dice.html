@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Webpage</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+        <link rel="stylesheet" href="main.css">
+        
+        
+        <script id="result" type="text/x-handlebars-template">
+            <li>
+                {{#each dados}}
+                    <img src="img/{{this}}.png">
+                {{/each}}
+                (Total: {{total}})
+            </li>
+        </script>
+        
+        <script>
+            const template = Handlebars.compile(document.querySelector('#result').innerHTML);
+
+            document.addEventListener('DOMContentLoaded', () => {
+                document.querySelector('#roll').onclick = () => {
+                    const counter = parseInt(document.querySelector('#counter').value);
+                    const dados = []
+                    let total = 0;
+                    for (let i = 0; i < counter; i++){
+                        const roll = Math.floor((Math.random() * 6) + 1);
+                        dados.push(roll);
+                        total += roll;
+                    }
+                    const content = template({"dados":dados, "total":total});
+                    document.querySelector('#rolls').innerHTML += content;
+                };
+            });
+        </script>
+
+        
+    </head>
+    <body>
+        <input id="counter" type="number" placeholder="Number of Rolls" min="1" value="1">
+        <button id="roll">Roll</button>
+        <ul id="rolls">
+        </ul>
+    </body>
+</html>

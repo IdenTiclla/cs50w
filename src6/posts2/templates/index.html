@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Webpage</title>
+        <style>
+            .hide  {
+                float: right;
+            }
+
+            .post {
+                background-color: #77dd11;
+                padding: 20px;
+                margin: 10px;
+            }
+
+            body {
+                padding-bottom: 50px;
+            }
+        </style>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+
+        <script id="result" type="text/x-handlebars-template">
+            <div class="post">
+                {% raw -%}
+                    {{contents}}
+                {%- endraw %}
+                <button class="hide">Hide</button>
+            <div>
+        </script>
+        <script>
+            let counter = 1;
+            const quantity = 20;
+
+            document.addEventListener('DOMContentLoaded', load);
+
+            window.onscroll = () =>{
+                if (window.innerHeight + window.scrollY >= document.body.offsetHeight){
+                    load();
+                }
+            };
+            // brutal
+            document.addEventListener('click', event =>{
+                const element = event.target;
+                if(element.className == 'hide'){
+                    element.parentElement.remove();
+                }
+            });
+
+            function load(){
+                const start = counter;
+                const end = start + quantity - 1;
+                counter = end + 1;
+
+                const request = new XMLHttpRequest();
+                request.open("POST",'/posts');
+                request.onload = () => {
+                    const data = JSON.parse(request.responseText);
+                    data.forEach(add_post);
+                };
+                const data = new FormData();
+                data.append('start', start);
+                data.append('end', end);
+                request.send(data);
+            }
+            const post_template = Handlebars.compile(document.querySelector('#result').innerHTML);
+
+            function add_post(contents){
+                const post = post_template({"contents":contents});
+                document.querySelector('#posts').innerHTML += post;
+            }
+            // by iden
+
+        </script>
+
+        
+    </head>
+    <body>
+        <div id="posts">
+        </div>
+    </body>
+</html>

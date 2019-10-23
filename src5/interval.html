@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                setInterval(count,1000);
+            });
+
+            var counter = 0;
+            function count(){
+                counter += 1;
+                document.querySelector('#counter').innerHTML = counter;
+            }
+        </script>
+        <title>my website</title>
+    </head>
+    <body>
+        <h1 id="counter">0</h1>
+    </body>
+</html>

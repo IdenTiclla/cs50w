@@ -1,0 +1,55 @@
+@media print {
+  .not-print {
+    display: none; } }
+header, .navbar-expand-lg, section, footer {
+  padding: 30px; }
+
+header {
+  text-align: center;
+  background-color: bisque;
+  padding: 20px; }
+
+.center_div {
+  padding-left: 38%;
+  margin: 0 auto;
+  width: 100%; }
+
+.navbar-expand-lg {
+  background-color: aquamarine;
+  padding: 10px;
+  width: 500px; }
+
+section {
+  background-color: blueviolet;
+  height: 555px; }
+  section h1 {
+    font-family: cursive;
+    text-align: center; }
+  section #content {
+    width: 50%;
+    margin: 0 auto; }
+
+footer {
+  background-color: #efefef; }
+
+table {
+  border: 1px solid black;
+  border-collapse: collapse; }
+  table th {
+    width: 700px;
+    background-color: darkgrey;
+    border: 1px solid black;
+    border-collapse: collapse; }
+  table td {
+    border: 1px solid black;
+    border-collapse: collapse; }
+
+.d-inline-block {
+  width: 400px;
+  height: 400px;
+  padding: 20px; }
+
+span {
+  color: darkslategrey; }
+
+/*# sourceMappingURL=main.css.map */

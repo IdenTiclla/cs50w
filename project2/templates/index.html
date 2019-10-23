@@ -1,0 +1,64 @@
+{% extends "layout.html" %} {% block title %} Welcome to Flack {% endblock %} {%
+block content %}
+<div id="all">
+  <div id="channels-div">
+    <form id="create-channel">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Create a new channel</label>
+        <input
+          id="channel_name"
+          type="text"
+          class="form-control"
+          placeholder="Enter channel name"
+          autofocus
+          autocomplete="off"
+        />
+        <small id="emailHelp" class="form-text text-muted"
+          >the name must be unique</small
+        >
+      </div>
+      <button id="button_create" type="submit" class="btn btn-primary">
+        Create
+      </button>
+    </form>
+  </div>
+
+  <div id="chat">
+    <div class="card grey lighten-3 chat-room">
+      <div class="card-body">
+        <!-- Grid row -->
+        <div class="row px-lg-2 px-2">
+          <!-- Grid column -->
+          <div class="col-md-6 col-xl-4 px-0">
+            <h6 class="font-weight-bold mb-3 text-center text-lg-left">Channels</h6>
+            <div class="btn-group" id="container-channels">
+              <ul id="channel_list" class="list-unstyled friend-list">
+
+              </ul>
+            </div>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div id="chat" class="col-md-6 col-xl-8 pl-md-3 px-lg-auto px-0">
+            <h1 id="chat_header"></h1>
+            <div class="chat-message" id="container-messages">
+              <ul class="list-unstyled chat" id="lista-chat">
+              </ul>
+            </div>
+            <div class="white">
+              <div class="form-group basic-textarea">
+                <textarea class="form-control pl-2 my-0" id="text-field" rows="2" placeholder="Type your message here..."></textarea>
+              </div>
+              <button id="button_send" type="button" class="btn btn-info btn-rounded btn-sm waves-effect waves-light float-right">Send</button>
+            </div>
+            <!-- Grid column -->
+          </div>
+          <!-- Grid row -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% endblock %}
+</div>

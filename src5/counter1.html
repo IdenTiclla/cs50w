@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            var counter = 0;
+            function count(){
+                counter += 1;
+                document.querySelector('#counter').innerHTML = `count to ${counter}`;
+            }
+
+            function discount(){
+                counter -= 1;
+                document.querySelector('#counter').innerHTML = `discount to ${counter}`;
+                
+            }
+            
+
+        </script>
+        <title>My Website</title>
+    </head>
+    <body>
+        <h1 id="counter">0</h1>
+        <button onclick="count()">Count</button>
+        <button onclick="discount()">Discount</button>
+    </body>
+</html>
